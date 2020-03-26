@@ -1,0 +1,267 @@
+<!doctype html>
+<html lang="kr">
+	<head>
+	<meta charset="UTF-8">
+	<title>도치의 이모저모</title>
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+	<style type="text/css">
+	/*메뉴 스타일*/
+	input[type="checkbox"]#menu_state {
+		display: none;
+	}
+	input[type="checkbox"]:checked ~ nav {
+		width: 250px;
+	}
+	input[type="checkbox"]:checked ~ nav label[for="menu_state"] i::before {
+		content: "\f053";
+	}
+	input[type="checkbox"]:checked ~ nav ul {
+		width: 100%;
+	}
+	input[type="checkbox"]:checked ~ nav ul li a i {
+		border-right: 1px solid #2f343e;
+	}
+	input[type="checkbox"]:checked ~ nav ul li a span {
+		opacity: 1;
+	transition: opacity 0.25s ease-in-out;
+	}
+	input[type="checkbox"]:checked ~ main {
+		left: 250px;
+	}
+	nav {
+		position: fixed;
+		z-index: 9;
+		top: 0;
+		left: 0;
+		bottom: 0;
+		background: #383e49;
+		color: #9aa3a8;
+		width: 50px;
+		font-family: 'Montserrat', sans-serif;
+		font-weight: lighter;
+		transition: all 0.15s ease-in-out;
+	}
+	nav label[for="menu_state"] i {
+		cursor: pointer;
+		position: absolute;
+		top: 50%;
+		right: -8px;
+		box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+		background: #fff;
+		font-size: 10px;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		height: 15px;
+		width: 15px;
+		border-radius: 50%;
+		border: 1px solid #ddd;
+		transition: width 0.15s ease-in-out;
+		z-index: 1;
+	}
+	nav label[for="menu_state"] i::before {
+		margin-top: 2px;
+		content: "\f054";
+	}
+	nav label[for="menu_state"] i:hover {
+		box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+	nav ul {
+		overflow: hidden;
+		display: block;
+		width: 50px;
+		list-style-type: none;
+		padding: 0;
+		margin: 0;
+	}
+	nav ul li {
+		border: 1px solid #2f343e;
+		position: relative;
+	}
+
+	nav ul li:not(:last-child) {
+	  border-bottom: none;
+	}
+	nav ul li.active a {
+	  background: #4c515d;
+	  color: #fff;
+	}
+	nav ul li a {
+	  position: relative;
+	  display: block;
+	  white-space: nowrap;
+	  text-decoration: none;
+	  color: #9aa3a8;
+	  height: 50px;
+	  width: 100%;
+	  transition: all 0.15s ease-in-out;
+	}
+	nav ul li a:hover {
+	  background: #4c515d;
+	  color: #fff;
+	}
+	nav ul li a * {
+	  height: 100%;
+	  display: inline-block;
+	}
+	nav ul li a i {
+	  text-align: center;
+	  width: 50px;
+	  z-index: 999999;
+	}
+	nav ul li a i.fa {
+	  line-height: 50px;
+	}
+	nav ul li a span {
+	  padding-left: 25px;
+	  opacity: 0;
+	  line-height: 50px;
+	  transition: opacity 0.1s ease-in-out;
+	}
+	/*본문 스타일*/
+	main {
+	  position: absolute;
+	  transition: all 0.15s ease-in-out;
+	  top: 0;
+	  left: 50px;
+	  right: 0;
+
+	  background: url("hedgehog2.png");
+
+	  background-position: 50% 50%;
+	  background-repeat: repeat;
+	  
+	}
+
+	main section {
+	  box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+	  background: #fff;
+	  padding: 25px;
+	  font-family: helvetica;
+	  font-weight: lighter;
+	  padding: 50px;
+	  margin: 150px 75px;
+	  transition: all 0.15s ease-in-out;
+	}
+	main section:hover {
+	  box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+	}
+	main section h1 {
+	  padding-top: 0;
+	  margin-top: 0;
+	  font-weight: lighter;
+	}
+	</style>
+
+	<script>
+		/*퀴즈 1번 : onclick 이벤트 : 이벤트에 색깔로 동작 구현*/
+		function changeColor(c){
+			document.getElementById("target").style.backgroundColor = c;
+			}
+		/*onmousedown이벤트에 대한 스크립트 실행*/
+		function OnButtonDown(button) {
+			button.style.color = "#ff0000";
+			alert('정답은 배경색이 하늘색입니다.');
+			}
+        function OnButtonUp(button) {
+            button.style.color = "#000000";
+        }
+		/*퀴즈2번 스타일 변경*/
+		function changeStyle() {
+        document.getElementById("p1").style.color = "red";
+        document.getElementById("p1").style.fontFamily = "Century Schoolbook";
+        document.getElementById("p1").style.fontStyle = "italic";
+    }
+	
+	/*퀴즈3번 답이 아닌 요소 삭제*/
+		function impact(){
+			document.getElementById("pp1").style.border="4px solid red"; 
+			alert('안팅이란 새로운 맛을 느꼈을 때 거품을 만들어 자신의 몸에 묻힘으로써 냄새를 기억하려는 행동이다.');
+			}
+	/*퀴즈 4번 : 요소를 추가*/
+		function addtext(t) {
+        if (document.createTextNode) {
+            var node = document.createTextNode(t);  
+            document.getElementById("target").appendChild(node);
+        }
+    }
+	</script>
+	</head>
+	<body>
+		<input type="checkbox" id="menu_state" checked>
+		<nav>
+		<label for="menu_state"><i class="fa"></i></label>
+		<ul>
+		<li data-content="5" class="active unread">
+				<a href="main.html" target="_self">
+					<!--font awesome으로 이모티콘 넣음-->
+					<i class="fa fa fa-paw"></i> 
+					<span>도치의 이모저모</span>
+				</a>
+		</li>
+		<li>
+			<a href="menu1.html" target="_self">
+				<i class="fa fa fa-paw"></i>
+				<span>고슴도치?</span>
+			</a>
+		</li>
+		<li>
+			<a href="menu2.html" target="_self">
+				<i class="fa fa fa-paw"></i>
+				<span>사진 및 동영상</span>
+			</a>
+		</li>
+		<li>
+			<a href="menu3.html" target="_self">
+				<i class="fa fa fa-paw"></i>
+				<span>에피소드</span>
+			</a>
+		</li>
+		<li data-content="2" class="unread">
+			<a href="menu4.html" target="_self">
+				<i class="fa fa fa-paw"></i>
+				<span>에피소드 보내기</span>
+			</a>
+		</li>
+	</ul>
+	</nav>
+	<main>
+	<section id="target">
+		<!--고슴도치의 습성을 알려주는 부분-->
+		<h1> - 고슴도치? - </h1>
+		<div>
+			<span ><a href="knowledge1.html" target="_self"><img src="main_pic_3.jpg" alt="메인사진2" style="width: 225px; height: 230px; margin: 30px 16px 0 5px; border: 2px outset"></a></span>
+			<span><a href="knowledge2.html" target="_self"><img src="main_pic_2.jpg" alt="메인사진3" style="width: 225px; height: 230px; margin: 30px 16px 0 0; border: 2px outset"></a></span>
+			<span><a href="knowledge3.html" target="_self"><img src="쳇바퀴.jpg" alt="메인사진3" style="width: 225px; height: 230px; margin: 30px 16px 0 0; border: 2px outset"></a></span><br><br>
+		</div>
+		<!--퀴즈나오는 부분-->
+		<h1> - 퀴즈로 알아보는 상식 - </h1>
+		<h3> 1. 고슴도치의 식성은 모두 다르다.</h3>
+		<form>
+			<input type="radio" name="Q1" value="v1" onclick="changeColor('lightblue')">맞다.
+			<input type="radio" name="Q2" value="v2" onclick="changeColor('red')">아니다.
+			<button onmousedown="OnButtonDown(this)" onmouseup="OnButtonUp(this)">정답</button>
+		</form>
+		<!--HTML, CSS요소변경-->
+		<h3>2. 고슴도치는 어느 곳을 더 좋아할까?</h3>
+		<form>
+			<p>① 밝은 곳</p>
+			<p id="p1">② 어두운 곳</p>
+			<input type="button" onclick="changeStyle()" value="정답" />
+		</form>
+		<!--박스 볼드 변경-->
+		<h3>3. 다음 중 안팅이라는 행동은?</h3>
+		<div id="target">
+			① <img src="안팅.jpg" id="pp1" style="width: 200px; height: 170px; border: 1px solid black"  >
+			② <img src="안팅2.jpg" id="pp2" style="width: 200px; height: 170px; border: 1px solid black" >
+		</div>
+		<button onclick="impact()">정답</button>
+		<h3>4. 고슴도치는 시력이 좋다.</h3>
+			<p>① 맞다.</p>
+			<p>② 아니다.</p>
+			정답은 버튼을 누르면 나옵니다. : <input type="button" id="target" value="버튼" onclick="addtext('아니다. 고슴도치는 시력이 나쁘다.')" style="font: 15px bold;">
+
+	</section>
+</main>
+</body>
+</html>
